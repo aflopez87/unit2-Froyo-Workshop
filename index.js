@@ -33,23 +33,33 @@
 // console.log(createObject(orderArr))
 
 //////  Alternative Solution using Object Keys //////
+// creates function for expressing number of times a flavor input is added
 function froyoFlavors(){
+    // Prompt with a pre-established array of flavors
     let userInputString = prompt(
         "Please enter a flavors for your froyo order.",
         "vanilla, vanilla, vanilla, strawberry, coffee, coffee")
+    // Takes the input string and separates by comma mapping and trimming the space between commas and flavors and sets to arrFlavor array
     let arrFlavor = userInputString.split(",").map(flavor => flavor.trim())
-
+    
+    // Creates and empty object called flavorCount
     let flavorCount = {};
+    // For loop using object keys to identify each key as flavor in the arrFkavor array
     for (let flavor of arrFlavor){
+    // Each time a flavor is counted in the input,, adds the flavor to the empty array and a ticker that increases by 1 for each instance of that flavor
         if (flavorCount[flavor]){
             flavorCount[flavor]++;
+    // If the flavor counted is different, maintains adds the flavor but keeps the ticker count to 1
         }else {
             flavorCount[flavor] = 1;
         }
     }
+    // Returns the data from the loop
     return flavorCount
 }
 
+// Saves the output of the froyoFlavors() function as the variable result
 const result = froyoFlavors();
+// Prints to console the different flavors and the number of flavors ordered
 console.log("Summary of order:", result);
 
